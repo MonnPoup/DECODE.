@@ -1,0 +1,950 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  background-color: #203126;
+}
+
+Link {
+  color: none;
+  text-decoration: none;
+}
+
+body {
+  height: 100%;
+  background-color: #fcfbf6;
+}
+
+#root {
+  height: 100%;
+  background-color: #203126;
+}
+
+.background {
+  background-color: #203126;
+  height: 100%;
+  width: 100%;
+}
+
+
+h1 {
+  font-family: "Abril Fatface", cursive;
+  font-weight: normal;
+}
+
+h2 {
+  font-family: "Abril Fatface", cursive;
+  font-weight: normal;
+}
+
+h3 {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 35px;
+  margin-left: 10px;
+}
+
+h4 {
+  font-family: "Montserrat";
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.textShoppingList {
+  font-family: "Montserrat";
+  font-size: 15px;
+  color: white; 
+  margin-bottom: 0px;
+}
+
+p {
+  font-family: "Montserrat";
+}
+
+/* NAVBAR */
+
+.navbarNormal {
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 120px;
+  background-color: #fcfbf6;
+  padding: 5px;
+  padding-left: 5px;
+  padding-top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbarNormalFixe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 120px;
+  background-color: #fcfbf6;
+  padding: 5px;
+  padding-left: 5px;
+  padding-top: 0;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.icon {
+  margin-right: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* PAGE HOME */
+
+.mycontainer {
+  height: 100vh;
+  max-width: 100vw;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+.navbarHome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 150px;
+  background-color: #fcfbf6;
+  padding: 5px;
+  padding-left: 5px;
+  padding-top: 0;
+  color: #203126;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.imageBackground {
+  background-image: url(background.png);
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  z-index: 20;
+}
+
+#pHome {
+  margin: 0;
+  font-size: 35px;
+  font-family: "Montserrat";
+  font-weight: 800;
+  font-size: 40px;
+  animation: fadeInDown 1s;
+}
+
+@keyframes fadeInDown {
+  0% 
+    {opacity: 0.5;
+    transform: translateY(-25vh);}
+  100% 
+    {opacity: 1;
+    transform: translateY(0);}
+} 
+
+/* @keyframes showup {
+  0% {opacity:0;}
+  20% {opacity:1;}
+  80% {opacity:1;}
+  100% {opacity:0;}
+}
+
+@keyframes slidein {
+  0% { margin-left:-2500px; width:50vw}
+  20% { margin-left:-2500px; width:50vw }
+  35% { margin-left:0px; width:50vw}
+  100% { margin-left:0px; width:50vw}
+}
+
+@keyframes reveal {
+  0% {opacity:0;width:50vw}
+  20% {opacity:1;width:50vw}
+  30% {width:50vw}
+  80% {opacity:1;width:50vw}
+  100% {opacity:0;width:50vw}
+} */
+
+
+
+
+.pHome1 {
+  font-family: "Montserrat";
+  width: 70vw;
+  font-size: 25px;
+
+  margin-left: 10px;
+  color: white;
+  
+}
+
+.chevronBlanc {
+  position: absolute;
+  width: 64.36px;
+  height: 86.73px;
+  left: 47vw;
+  top: 85vh;
+  transition: transform .2s
+}
+.chevronBlanc:hover {
+  transform: scale(1.1);
+}
+
+.chevronBlanc2 {
+  position: absolute;
+  width: 64.36px;
+  height: 86.73px;
+  left: 47vw;
+  top: 105vh;
+  transform: rotate(180deg);
+  margin-top: 20vh;
+  transition: transform .2s
+}
+
+.chevronBlanc2:hover {
+  transform: scale(1.1) rotate(180deg);
+}
+
+.paletteNoire {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 32vh;
+  right: 3vw;
+
+  background: #2f2f31;
+  border-radius: 20px;
+  transform: matrix(0, -1, -1, -0, 0, 0);
+}
+
+.paletteBrune {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 45vh;
+  right: 3vw;
+
+  background: #9d7d61;
+  border-radius: 20px;
+  transform: matrix(0, -1, -1, -0, 0, 0);
+}
+.paletteBleue {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 58vh;
+  right: 3vw;
+
+  background: #2c324b;
+  border-radius: 20px;
+  transform: matrix(0, -1, -1, -0, 0, 0);
+}
+.paletteOr {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 71vh;
+  right: 3vw;
+
+  background: #bb9a4d;
+  border-radius: 20px;
+  transform: matrix(0, -1, -1, -0, 0, 0);
+}
+.paletteBlanc {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 84vh;
+  right: 3vw;
+  z-index: 25;
+
+  background: #e6e7eb;
+  border-radius: 20px;
+  transform: matrix(0, -1, -1, -0, 0, 0);
+}
+
+.titreHomeSection1 {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  padding-top: 29vh;
+  margin-left: 2vw;
+  color: #203126;
+}
+
+.titreHomeSection2 {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-size: 25px;
+  color: #fdfcf7;
+  padding-top: 40vh;
+}
+
+.ButtonHome1 {
+  border-radius: 50px;
+  opacity: 0.9;
+  border: 1px solid #203126;
+  position: absolute;
+  left: 40vw;
+  top: 75vh;
+  height: 45px;
+  width: 250px;
+  font-size: 15px;
+  color: white;
+  background-color: #203126;
+  cursor: pointer;
+  transition: transform .2s 
+}
+.ButtonHome1:hover{
+transform: scale(1.1)
+}
+
+.ButtonHome2 {
+  border-radius: 50px;
+  border: 0px solid #203126;
+  position: absolute;
+  left: 40vw;
+  top: 170vh;
+  height: 45px;
+  width: 250px;
+  font-size: 15px;
+  color: #203126;
+  background-color: #fdfcf7;
+  cursor: pointer;
+  transition: transform .2s 
+}
+
+.ButtonHome2:hover {
+  transform: scale(1.1)
+}
+
+/* PAGE QUIZ */
+
+.questions {
+  position: absolute;
+  margin-left: 30px;
+  margin-top: 30px;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 50px;
+  /* or 139% */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.15px;
+
+  color: #fcfbf6;
+}
+
+.questionsPhoto {
+  display: flex;
+  align-items: center;
+  padding-top: 10vh;
+}
+
+.ProgressBar {
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: -5px;
+}
+
+.inputValider {
+  border-radius: 50px;
+  opacity: 0.8;
+  border: 1px solid #203126;
+  margin-top: 2vh;
+  margin-left: 11.5vw;
+  height: 5vh;
+  width: 6.5vw;
+  font-size: 13px;
+  color: white;
+  background-color: #203126;
+}
+
+.ButtonQuestionnaire {
+  background: #fcfbf6;
+  border-radius: 50px;
+  color: #203126;
+  border: 0.5px solid #fcfbf6;
+  width: 15vw;
+  height: 5vh;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 28px;
+  margin-top: 10px;
+ transition: transform .2s 
+}
+.ButtonQuestionnaire:hover{
+transform: scale(1.1)
+}
+
+.photo {
+  width: 50vw;
+  margin: 20px;
+  transition: transform .2s 
+}
+.photo:hover {
+cursor: pointer; 
+transform: scale(1.1)
+}
+
+.arrow-button {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin: 10px 15px 0px 15px;
+  transition: transform .2s 
+}
+
+.arrow-button:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+} 
+
+.ErrorQuiz {
+  font-family: "Montserrat";
+  font-size: 15px;
+  color: #fcfbf6;
+  text-align: center;
+  margin-top: 5px;
+}
+/* PAGE MYPALETTE */
+
+.containerMypalette {
+  height: 35vh;
+  width: 70vw;
+  background-color: #fcfbf6;
+  border-radius: 10px;
+  margin-left: 15vw;
+  margin-top: 10vh;
+}
+
+.h3Mypalette {
+  font-family: "Montserrat";
+  font-weight: 700;
+  color: #203126;
+  letter-spacing: -1.5px;
+  padding-top: 1vh;
+  margin: 0 0 0 1vw;
+  font-size: 30px;
+}
+
+.traitMypalette {
+  width: 100%;
+  height: 3px;
+  background-color: #203126;
+}
+
+.descriptionMypalette {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-size: 20px;
+  margin-left: 15vw;
+  margin-top: 5vh;
+  color: #fdfcf7;
+  width: 70vw;
+  text-align: justify;
+}
+
+.textColorPalette {
+  font-family: "Montserrat";
+  margin-left: 5px;
+  margin-top: 0px;
+  transform: scale(1, -1);
+  -moz-transform: scale(1, -1);
+  -webkit-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+.palette {
+  width: 140px;
+  height: 140px;
+  margin-top: 4.5vh;
+  margin-left: 3.5vw;
+
+  transform: matrix(0, -1, -1, 0, 0, 0);
+}
+
+.inputMypalette {
+  border-radius: 50px;
+  border: 0px solid #203126;
+  height: 45px;
+  width: 250px;
+  font-size: 15px;
+  color: #203126;
+  background-color: #fdfcf7;
+  cursor: pointer;
+  margin-left: 42vw;
+  cursor: pointer;
+  transition: transform .2s 
+}
+.inputMypalette:hover{
+  transform: scale(1.05)
+}
+
+
+.notifcopy {
+  background-color: #fcfbf6 !important;
+  font-family: "Montserrat";
+  font-weight: bold !important;
+  color: red !important;
+  border-radius: 15px !important;
+  padding-bottom: 0px !important;
+}
+
+
+/* PAGE SHOPPING LIST */
+
+.PaletteColors {
+  display:flex;
+  justify-content: space-around;
+  width:25%
+}
+
+.ArticleShoppingList {  
+margin-top: 1%;
+margin-left: 100px;
+margin-right: 10%;
+}
+
+.ShoppingList-Text {
+  padding-left:5%
+}
+
+.TitleShoppingListContainer{
+font-weight: bold;
+width: 95%;
+border-bottom: 3px solid #203126;
+color:#203126;
+margin-bottom: 10px;
+}
+
+#Popover1 {
+background-color: #fcfbf6;
+border: 1px solid #203126;
+color:#203126;
+border-radius: 15px
+}
+
+.h6filter {
+  background-color: #fcfbf6;
+  color: #203126;
+  border-bottom: 1px solid #203126;
+  font-weight: 700;
+  font-family: "Montserrat";
+
+}
+
+.ant-popover-inner-content {
+  background-color: #fcfbf6;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #203126 !important;
+  border-color: #203126 !important;
+}
+
+.articleCardTitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #203126;
+}
+
+.articleCardBrand {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #203126;
+  opacity: 0.54;
+}
+
+.scrollerShoppingList {
+  display:flex;
+  justify-content: center;
+  width: 100%;
+  height: 53vh;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
+}
+
+.containerArticles {
+  display:flex;
+  justify-content: center;
+  margin-bottom: 3px;
+}
+
+.rowArticles {
+  display: flex;
+  justify-content: center;
+}
+
+.scrollShoppingList {
+background-color: #203126;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 6px 6px 15px 6px;
+}
+
+.articleCard{
+  /* style={{backgroundColor:'white', margin:'10px',  display:'flex', flexDirection:'column', justifyContent:'space-between'}} */
+  background-color: white;
+  margin:10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.productImage{
+  /* style={{display:'flex', justifyContent:'center', alignItems: 'center', width: '100%', height: '35vh'}} */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 35vh;
+}
+
+.productInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardPartLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 5px;
+}
+.cardPartRight{
+  display: flex;
+  flex-direction: column;
+  margin:0px;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.arrowShoppingList {
+height: 30px;
+margin-top:6px ;
+transition: transform .2s
+}
+
+.arrowShoppingList:hover {
+  transform: scale(1.1);
+}
+
+.ContainerInspi {
+  background-color: #fcfbf6;
+}
+
+.Inpiration-Text {
+margin-left: 10%;
+margin-right: 10%;
+}
+
+.Inspirations-DisplayPhoto {
+background-color: #fcfbf6;
+height: 100%;
+display: flex;
+width: 100%;
+}
+
+.containerPhotoInspi{
+display:flex;
+justify-content: center;
+margin-bottom: 30px;
+}
+
+.rowPhotoInspi {
+  display: flex;
+  justify-content: center;
+}
+
+
+.inputShoppingList {
+  border-radius: 50px;
+  border: 0px solid #203126;
+  height: 45px;
+  width: 15vw;
+  font-size: 15px;
+  color: #fdfcf7;
+  background-color: #203126;
+  cursor: pointer;
+  margin-right: 2vw;
+  transition: transform .2s
+}
+
+.inputShoppingList:hover {
+  transform: scale(1.1)
+}
+
+/* PAGE LOGIN */
+
+.formLogin {
+  border-radius: 30px;
+  z-index: 50; 
+}
+
+.input_login {
+  border-radius: 50px !important;
+  border: 1px solid #203126 !important;
+  opacity: 0.8 !important;
+  margin-top: 2vh !important;
+  height: 5.5vh !important;
+  font-size: 15px !important;
+  padding-left: 0.5vw!important;
+  width: 18vw !important;
+}
+
+.containerLogin {
+  height: 65vh;
+  width: 70vw;
+  background-color: #fcfbf6;
+  border-radius: 10px;
+  margin-left: 220px;
+  z-index:20
+}
+.login {
+  display: flex;
+  justify-content: space-between;
+}
+
+.connexion {
+  font-family: "Montserrat";
+  font-size: 25px;
+  font-weight: normal;
+  margin-top: 60px;
+  margin-left: 160px;
+  color: #203126;
+}
+
+.inscription {
+  font-family: "Montserrat";
+  font-size: 25px;
+  font-weight: normal;
+  margin-top: 60px;
+  margin-right: 160px;
+  color: #203126;
+}
+
+.h3title {
+  font-family: "Montserrat";
+  padding-top: 15px;
+  margin-bottom: 10px;
+  color: #203126;
+  letter-spacing: -1.5px;
+}
+
+.trait {
+  margin-top: 70px;
+  transform: rotate(-180deg);
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-bottom: 50px
+}
+
+.trait2 {
+  width: 100%;
+  height: 3px;
+  background-color: #203126;
+}
+
+/* PAGE WISHLIST */
+
+
+.backgroundWishlist {
+  background-color: #fcfbf6;
+  width: 100%;
+  padding-bottom: 19vh;
+}
+
+.inputWishlistNonConnecte {
+  border-radius: 50px;
+  border: 0px solid #203126;
+  height: 45px;
+  width: 15vw;
+  font-size: 15px;
+  color: #fdfcf7;
+  background-color: #203126;
+  cursor: pointer;
+  transition: transform .2s
+}
+
+.inputWishlistNonConnecte:hover {
+  transform: scale(1.1)
+}
+
+.wishlist-text {
+  padding:10px;
+  display: flex;
+  margin-left: 10%;
+}
+
+.wishlist-title{
+font-weight: bold;
+border-bottom: 3px solid #203126;
+color: #203126;
+margin-bottom: 10px;
+}
+
+.traitWishlist {
+  width: 100%;
+  height: 5px;
+  background-color: #203126;
+}
+
+.inputWishlist {
+  border-radius: 50px;
+  border: 0px solid #203126;
+  height: 45px;
+  width: 15vw;
+  font-size: 15px;
+  color:#fdfcf7;
+  background-color: #203126;
+  cursor: pointer;
+  margin-right: 30px;
+  transition: transform .2s
+}
+
+.inputWishlist:hover {
+  transform: scale(1.1)
+}
+
+.containerWishlistCard{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3px;
+}
+.articleWishList {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color:  #203126;
+}
+
+.cardWishlist {
+ background-color:white;
+ margin: 10px;
+ min-width: 210px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+}
+
+.imageWishlist {
+display:flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 35vh;
+}
+
+.infoWishlist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 5px;
+}
+
+.priceWishlist {
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+justify-content: flex-end;
+}
+
+/* PAGE ALLPALETTES */
+
+.containerAllPalettes {
+  height: 20vh;
+  width: 35vw;
+  background-color: #fcfbf6;
+  border-radius: 10px;
+  margin-left: 12vw;
+  margin-top: 3vh;
+}
+
+.h3AllPalettes {
+  font-family: "Montserrat";
+  font-weight: 700;
+  color: #fcfbf6;
+  letter-spacing: -1.5px;
+  padding-top: 1vh;
+  margin: 0 0 0 10vw;
+  font-size: 25px;
+  margin-top: 3vh;
+}
+
+.traitAllPalettes {
+  width: 80%;
+  height: 3px;
+  display: flex;
+  justify-content: center;
+  background-color: #fcfbf6;
+  margin-left: 10vw;
+  margin-top: 1vh;
+}
+
+.traitContainerAllPalettes {
+  width: 35vw;
+  height: 3px;
+  display: flex;
+  justify-content: center;
+  background-color: #203126;
+}
+
+.h3Container {
+  font-family: "Montserrat";
+  font-weight: 700;
+  color: #203126;
+  letter-spacing: -1.5px;
+  padding-top: 1vh;
+  margin: 0 0 0 2vw;
+  font-size: 25px;
+  margin-top: 1vh;
+}
+
+.paletteAllPalettes {
+  width: 70px;
+  height: 70px;
+  transform: matrix(0, -1, -1, 0, 0, 0);
+}
+
+.paletteContainer {
+  display: flex;
+  width: 30vw;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 3vh;
+}
+
+.carouselAllPalettes {
+background-color: #203126;
+max-width: 80%;
+margin-left: 10%;
+padding-left: 10%;
+}
+
