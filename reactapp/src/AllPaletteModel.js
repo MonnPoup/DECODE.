@@ -1,6 +1,5 @@
 import React from "react";
 import { Carousel, Container, Row, Col} from 'react-bootstrap';
-import { Popover, Button } from 'antd';
 
 function AllPaletteModel(props) {
  
