@@ -13,7 +13,7 @@ function Quiz(props) {
   const [isPhoto4Selected, set_isPhoto4Selected] = useState(false);
   const [error, setError] = useState("");
   const [buttonValider, setButtonValider] = useState(false);
-  var answersArray = []
+  const [answersArray, setAnswersArray] = useState([])
   var dataQuestions = [
     {
       question: "Parmi ces matériaux et tissus, lequel préférez-vous ?",
@@ -161,15 +161,14 @@ function Quiz(props) {
       isPhoto3Selected === true ||
       isPhoto4Selected === true
     ) {
-      if (answersArray[clickCount] === undefined) {
-        // si premier clic
-        var copy = answersArray;
-        copy.push(answer);
-      } else if (answersArray[clickCount]) {
-        // si revient en arrière modifie la valeur
-        answersArray[clickCount] = answer;
-      }
-      setCount(clickCount + 1);
+        if (answersArray[clickCount] === undefined) { // Premier clic 
+          var copy = answersArray
+          copy.push(answer);
+        } else if (answersArray[clickCount]) {
+          // si revient en arrière modifie la valeur
+          answersArray[clickCount] = answer;
+        }
+      setCount(clickCount + 1); //Incrémentation 
       setProgressBarWidth(progressBarWidth + 185); //  barre de progression
       set_isPhoto1Selected(false);
       set_isPhoto2Selected(false);
@@ -184,7 +183,7 @@ function Quiz(props) {
   var handleClickDecreaseWidth = () => {
     setProgressBarWidth(progressBarWidth - 185);
     if (clickCount !== 0) {
-      setCount(clickCount - 1);
+      setCount(clickCount - 1); //Décrémentation
     }
     setError("");
   };
@@ -197,17 +196,17 @@ function Quiz(props) {
       isPhoto3Selected === true ||
       isPhoto4Selected === true
     ) {
-      var copy = answersArray;
+      var copy = answersArray
       copy.push(answer);
       setButtonValider(true);
-      const data = await fetch("/validerQuiz", {
+      const data = await fetch("/validerQuiz", { //Appel de la route validerQuiz pour envoyer les réponses du questionnaire
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: `rep1=${copy[0]}&rep2=${copy[1]}&rep3=${copy[2]}&rep4=${copy[3]}&rep5=${copy[4]}&rep6=${copy[5]}&rep7=${copy[6]}&token=${props.userToken}`,
       });
-      const body = await data.json();
+      const body = await data.json(); //Réception palette
 
-      props.addPalette(body.userPalette);
+      props.addPalette(body.userPalette); //Envoi dans le store
     } else {
       setError("Merci de sélectionner une réponse");
     }

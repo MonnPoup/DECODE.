@@ -725,7 +725,8 @@ margin-bottom: 30px;
   background-color: #fcfbf6;
   border-radius: 10px;
   margin-left: 220px;
-  z-index:20
+  z-index:20;
+  margin-top: 80px;
 }
 .login {
   display: flex;

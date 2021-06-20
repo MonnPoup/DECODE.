@@ -6,7 +6,11 @@ import { Popover } from "antd";
 import { Badge } from "antd";
 
 function NavBar(props) {
+  
+  //Nom de l'utilisateur présent dans le store
   const text = <span>Bonjour {props.userNameFromStore}</span>;
+  
+  // Contenu de la popover si connecté
   const content = (
     <div>
       <Link
@@ -63,6 +67,8 @@ function NavBar(props) {
   }
   var count = props.wishlist.length;
   return (
+
+    //Navbar
     <div className="navbarNormal">
       <div
         style={{

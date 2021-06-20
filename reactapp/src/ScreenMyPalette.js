@@ -10,16 +10,16 @@ function MyPalette(props) {
 
   useEffect(() => {
     setPalette(props.userPaletteFromStore);
-  }, [props.userPaletteFromStore, props.token]);
+  }, [props.userPaletteFromStore, props.token]); // Réexecution du useEffect si la valeur d'une des propriétés change
 
-  var handleClickCopyCode = (data) => {
+  var handleClickCopyCode = (data) => { //Copier le code hex des couleurs des palettes
     copy(`${data}`, {
       debug: true,
       message: "Press #{key} to copy",
     });
   };
 
-  const openNotification = () => {
+  const openNotification = () => { // Notification informant de la copie
     notification.open({
       message: "Code copié !",
       className: "notifcopy",
@@ -32,7 +32,7 @@ function MyPalette(props) {
     });
   };
 
-  const content = (
+  const content = ( 
     <div>
       <p style={{ fontSize: "12px", marginBottom: "0px" }}>
         Cliquez pour copier le code hex
@@ -40,7 +40,7 @@ function MyPalette(props) {
     </div>
   );
 
-  if (palette) {
+  if (palette) { // Renomme les palettes
     var paletteName = palette.name;
     if (paletteName === "artDeco") {
       paletteName = "Art Déco".toUpperCase();
@@ -52,20 +52,20 @@ function MyPalette(props) {
       paletteName = "Modern Minimal".toUpperCase();
     }
 
-    var tabPaletteColor = props.userPaletteFromStore.colors.map((data, i) => {
+    var tabPaletteColor = props.userPaletteFromStore.colors.map((data, i) => { //Map des couleurs
       return (
-        <Popover
+        <Popover //Message pour proposer de copier
           key={i}
           content={content}
           trigger="hover"
           placement="bottomRight"
         >
-          <div
+          <div //Couleurs des palettes
             key={i}
             style={{ backgroundColor: data, cursor: "pointer" }}
             className="palette"
             onClick={() => {
-              handleClickCopyCode(data);
+              handleClickCopyCode(data); 
               openNotification();
             }}
           >

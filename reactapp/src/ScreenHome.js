@@ -7,7 +7,9 @@ import "rc-texty/assets/index.css";
 import { Badge } from "antd";
 
 function Home(props) {
+   //Nom de l'utilisateur présent dans le store
   const text = <span>Bonjour {props.userNameFromStore}</span>;
+  // Contenu de la popover si connecté
   const content = (
     <div>
       <Link
@@ -37,7 +39,7 @@ function Home(props) {
   );
 
   if (props.userToken != null) {
-    var popover = (
+    var popover = ( // Si conecté : Popover
       <Popover
         placement="bottomRight"
         title={text}
@@ -52,7 +54,7 @@ function Home(props) {
       </Popover>
     );
   } else {
-    popover = (
+    popover = ( //Sinon redirection page login
       <Link to="/login">
         <img
           src="user.svg"
@@ -121,7 +123,7 @@ function Home(props) {
             justifyContent: "center",
           }}
         >
-          <p
+          <p //Animation titre chargement de la page
             id="pHome"
             data-mdb-toggle="animation"
             data-mdb-animation-reset="true"
@@ -130,7 +132,7 @@ function Home(props) {
             DÉCOUVREZ L'INTÉRIEUR DONT VOUS AVEZ TOUJOURS RÊVÉ
           </p>
         </div>
-        <a href="#section2">
+        <a href="#section2"> 
           <div
             type="button"
             className="ButtonHome1"

@@ -1,4 +1,5 @@
-export default function (palette = "", action) {
+//Ajout et Suppression d'une palette dans le store 
+export default function Palette (palette = "", action) {
   if (action.type === "addPalette") {
     var addPaletteCopy = action.palette;
     return addPaletteCopy;

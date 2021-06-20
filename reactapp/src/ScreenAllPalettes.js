@@ -5,6 +5,7 @@ import AllPaletteModel from "./AllPaletteModel";
 function AllPalettes() {
   const [allPalettes, setAllPalettes] = useState([]);
 
+  // On utilise la route AllPalettes en BDD
   useEffect(() => {
     async function loadPalette() {
       var rawResponse = await fetch("/AllPalettes");
@@ -14,6 +15,7 @@ function AllPalettes() {
     loadPalette();
   }, []);
 
+  //Map sur toutes les palettes et réécriture des noms des palettes
   var TabAllPalettes = allPalettes.map((data, i) => {
     var paletteName = data.name;
     if (paletteName === "artDeco") {
@@ -28,7 +30,7 @@ function AllPalettes() {
 
     return (
       <div>
-        <AllPaletteModel
+        <AllPaletteModel //Composant AllPaletteModel 
           key={i}
           name={paletteName}
           inspirations={data.inspirations}

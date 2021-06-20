@@ -1,4 +1,6 @@
-export default function (wishlist = [], action) {
+// Ajout, Suppression dans le store d'un article de la wishlist + destruction de la wishlist
+
+export default function Wishlist (wishlist = [], action) {
   if (action.type === "addWishlist") {
     return action.wishlist;
   }

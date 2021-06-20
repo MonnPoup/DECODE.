@@ -6,7 +6,11 @@ import "./App.css";
 import { Badge } from "antd";
 
 function NavbarFixed(props) {
+  
+  //Nom de l'utilisateur présent dans le store
   const text = <span>Bonjour {props.userNameFromStore}</span>;
+  
+  // Contenu de la popover si connecté
   const content = (
     <div>
       <Link
@@ -64,6 +68,8 @@ function NavbarFixed(props) {
   var count = props.wishlist.length;
 
   return (
+
+  //navbar
     <div className="navbarNormalFixe">
       <div
         style={{
