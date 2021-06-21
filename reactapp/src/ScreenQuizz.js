@@ -216,7 +216,7 @@ function Quiz(props) {
     return <Redirect to="/mypalette" />;
   }
 
-  var clickPhoto1 = async () => {
+  var clickPhoto1 = async () => { //Sélection des photos
     if (isPhoto1Selected === false) {
       set_isPhoto1Selected(true);
       set_isPhoto2Selected(false);
@@ -308,7 +308,7 @@ function Quiz(props) {
           className="arrow-button"
           onClick={() => handleClickDecreaseWidth()}
         />
-        <button
+        <button //Bouton valider à la dernière question
           type="button"
           className="ButtonQuestionnaire"
           onClick={() => {
@@ -336,7 +336,7 @@ function Quiz(props) {
     );
   }
 
-  if (error !== null) {
+  if (error !== null) { // Affichage des erreurs s'il y en a
     <p className="ErrorQuiz"> {error}</p>;
   } else {
     <div style={{ height: "50vh" }}></div>;

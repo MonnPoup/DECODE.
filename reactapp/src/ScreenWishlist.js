@@ -8,12 +8,12 @@ import NavbarFixed from "./navbarFixed";
 function Wishlist(props) {
   const [wishlist, setWishlist] = useState([props.wishlist]);
 
-  useEffect(() => {
+  useEffect(() => { //Maj de la wshlist lors de la modification de son état
     setWishlist(props.wishlist);
   }, [props.wishlist]);
 
   var handleClickDelete = async (articleID, index) => {
-    await fetch("/deleteFromWishlist", {
+    await fetch("/deleteFromWishlist", { // route pour supprimer un article de la wishlist
       method: "PUT",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: `token=${props.token}&articleID=${articleID}`,
@@ -22,7 +22,7 @@ function Wishlist(props) {
     props.deleteArticle(index);
   };
 
-  var displayWishlist = wishlist.map((article, i) => {
+  var displayWishlist = wishlist.map((article, i) => { //map des div articles
     return (
       <Col md={2} lg={2} className="cardWishlist">
         <a href={article.merchantUrl} target="_blank" rel="noreferrer">
@@ -32,7 +32,6 @@ function Wishlist(props) {
               src={article.imageUrl}
               alt="product"
             />
-            {/* image + picto coeur  */}
           </div>
         </a>
         <div className="productInfo">
@@ -86,7 +85,7 @@ function Wishlist(props) {
         </div>
       </div>
     );
-  } else if (props.token !== null) {
+  } else if (props.token !== null) { //Connecté wishlist vide
     return (
       <div className="background">
         <NavbarFixed />
@@ -116,7 +115,7 @@ function Wishlist(props) {
         </div>
       </div>
     );
-  } else {
+  } else { // Si pas connecté
     return (
       <div className="background">
         <NavbarFixed />

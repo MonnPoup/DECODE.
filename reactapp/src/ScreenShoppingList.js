@@ -21,6 +21,7 @@ function ShoppingList(props) {
 
   useEffect(() => {
     if (props.token) {
+      // récupération de la wishlist de l'utilisateur connecté
       async function wishlistData() {
         const rawResponse = await fetch("/wishlist", {
           method: "POST",
@@ -35,7 +36,7 @@ function ShoppingList(props) {
     }
   }, []);
 
-  ////////// CHERCHER LES ARTICLES EN BDD  //////////
+  //Chargement des articles liés à la palette
   useEffect(() => {
     async function loadData() {
       const rawResponse = await fetch("/myShoppingList", {
@@ -44,64 +45,71 @@ function ShoppingList(props) {
         body: `paletteName=${userPalette.name}`,
       });
       const body = await rawResponse.json();
-      setArticleList(body.shoppingList);
-      setArticleListFromBDD(body.shoppingList); // Mettre les articles dans un état ArticleList
+      setArticleList(body.shoppingList); //Liste d'articles 1
+      setArticleListFromBDD(body.shoppingList); // Liste d'articles 2
     }
     loadData();
   }, []);
 
   useEffect(() => {
-    setWishlist(props.wishlist);
+    setWishlist(props.wishlist); // Mise à jour de l'état wishlist lors d'un changement dans la wishlist du store
   }, [props.wishlist]);
 
   ////////// AJOUTER OU SUPPRIMER UN ARTICLE EN WISHLIST  //////////
+
   var handleClickWishList = (articleID) => {
+    // on va chercher l'id d'un article en fonction de celui sur lequel on vient de cliquer
     var resultFilter = wishlist.find((wishlist) => wishlist._id === articleID);
 
     if (!resultFilter) {
+      // si rien n'est trouvé on ajoute l'article à la wishlist
       async function addToWishlist() {
         const rawResponse = await fetch("/addToWishlist", {
+          //appel route addToWishlist
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: `token=${props.token}&articleID=${articleID}`,
         });
         const response = await rawResponse.json();
 
-        props.addToWishlist(response.wishlist);
+        props.addToWishlist(response.wishlist); //envoi de la nouvelle wishlist dans le store
       }
       addToWishlist();
     } else {
       async function deleteArticle() {
+        //si rien n'est trouvé, on supprime
         const deleteArticle = await fetch("/deleteFromWishlist", {
+          //appel route deleteFromWishlist
           method: "PUT",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: `token=${props.token}&articleID=${articleID}`,
         });
         const updateWishlist = await deleteArticle.json();
-        props.addToWishlist(updateWishlist.wishlist);
+        props.addToWishlist(updateWishlist.wishlist); //envoi de la nouvelle wishlist dans le store
       }
       deleteArticle();
     }
   };
 
   ////////////////// MAP DES ARTICLES TROUVES EN BDD /////////////////
+
   if (userPalette === "") {
     // s'il n'y a rien dans la liste d'article, l'utilsateur n'a pas fait le quizz, donc redirect home
     return <Redirect to="/" />;
   } else {
     var displayArticles = articleList.map((article, i) => {
       var wishlistFilter = props.wishlist.find(
-        (wishlist) => wishlist.merchantUrl === article.merchantUrl
+        (wishlist) => wishlist.merchantUrl === article.merchantUrl //On va chercher si l'article que l'on map est présent dans la wishlist :
       );
 
       if (wishlistFilter) {
-        likeColor = "#A7430A";
+        likeColor = "#A7430A"; // Si c'est le cas, on met le coeur en rouge
       } else {
-        likeColor = "#000000";
+        likeColor = "#000000"; // Sinon en blanc
       }
 
-      /////// pop over si pas connecté //////
       if (!props.token) {
+        //Popover prévenant qu'il faut se connecter pour accéder à la wishlist
         var popoverWishList = (
           <Popover
             placement="bottomRight"
@@ -126,6 +134,7 @@ function ShoppingList(props) {
       }
 
       return (
+        // Contenu d'une div article
         <Col key={i} md={2} lg={3} className="articleCard">
           <a href={article.merchantUrl} target="_blank" rel="noreferrer">
             <div className="productImage">
@@ -134,7 +143,6 @@ function ShoppingList(props) {
                 src={article.imageUrl}
                 alt="product"
               />
-              {/* image + picto coeur  */}
             </div>
           </a>
           <div className="productInfo">
@@ -226,36 +234,37 @@ function ShoppingList(props) {
     //////////////// FILTER  ////////////////
 
     function onChangeDécoration(e) {
-      setArticleList(articleListFromBDD);
-      setFilterDeco(e.target.checked);
+      setArticleList(articleListFromBDD); // reset de la liste d'articles
+      setFilterDeco(e.target.checked); //booléen passe à true
+    
     }
     function onChangeMobilier(e) {
-      setArticleList(articleListFromBDD);
-      setFilterMobilier(e.target.checked);
+      setArticleList(articleListFromBDD); // reset de la liste d'articles
+      setFilterMobilier(e.target.checked); //booléen passe à true
     }
 
     if (FilterDeco === true) {
       setStateMob(false);
-      setStateDeco(true);
+      setStateDeco(true); //checked
       var resultFilterDeco = articleList.filter(
-        (article) => article.category === "décoration"
+        (article) => article.category === "décoration" // filtre en fonction de la catégorie
       );
-      setArticleList(resultFilterDeco);
+      setArticleList(resultFilterDeco); // Maj de la liste d'articles 
       setFilterDeco(false);
     }
 
     if (FilterMobilier === true) {
       setStateDeco(false);
-      setStateMob(true);
+      setStateMob(true); //checked 
       var resultFilterMob = articleList.filter(
-        (article) => article.category === "mobilier"
+        (article) => article.category === "mobilier" // filtre en fonction de la catégorie
       );
-      setArticleList(resultFilterMob);
+      setArticleList(resultFilterMob); // Maj de la liste d'articles
       setFilterMobilier(false);
     }
 
-    var handleClickReset = () => {
-      setArticleList(articleListFromBDD);
+    var handleClickReset = () => { //reset global
+      setArticleList(articleListFromBDD); 
       setStateDeco(false);
       setStateMob(false);
       setFilterMobilier(false);
@@ -281,8 +290,7 @@ function ShoppingList(props) {
           }}
           onClick={() => handleClickReset()}
         >
-          {" "}
-          Réinitialiser le filtre{" "}
+          Réinitialiser le filtre
         </p>
       </div>
     );
