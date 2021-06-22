@@ -8,7 +8,7 @@ import NavbarFixed from "./navbarFixed";
 function Wishlist(props) {
   const [wishlist, setWishlist] = useState([props.wishlist]);
 
-  useEffect(() => { //Maj de la wshlist lors de la modification de son état
+  useEffect(() => { //Rerender de la wishlist lors de la modification de son état
     setWishlist(props.wishlist);
   }, [props.wishlist]);
 
@@ -37,7 +37,6 @@ function Wishlist(props) {
         <div className="productInfo">
           <div className="infoWishlist">
             <a href={article.merchantUrl} target="_blank" rel="noreferrer">
-              {" "}
               <h5 className="articleWishList"> {article.name} </h5>
             </a>
             <h6 className="articleCardBrand"> {article.brand} </h6>

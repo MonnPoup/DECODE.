@@ -19,23 +19,6 @@ function ShoppingList(props) {
   var userPalette = props.userPaletteFromStore;
   var likeColor = "";
 
-  useEffect(() => {
-    if (props.token) {
-      // récupération de la wishlist de l'utilisateur connecté
-      async function wishlistData() {
-        const rawResponse = await fetch("/wishlist", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: `token=${props.token}`,
-        });
-        const body = await rawResponse.json();
-        setWishlist(body.wishlist);
-        props.addToWishlist(body.wishlist);
-      }
-      wishlistData();
-    }
-  }, []);
-
   //Chargement des articles liés à la palette
   useEffect(() => {
     async function loadData() {
@@ -77,7 +60,7 @@ function ShoppingList(props) {
       addToWishlist();
     } else {
       async function deleteArticle() {
-        //si rien n'est trouvé, on supprime
+        //si trouvé, on supprime
         const deleteArticle = await fetch("/deleteFromWishlist", {
           //appel route deleteFromWishlist
           method: "PUT",
